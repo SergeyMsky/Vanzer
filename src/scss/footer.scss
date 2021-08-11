@@ -1,0 +1,304 @@
+.footer {
+   &__wrapper {
+      min-height: 100vh;
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+
+      @include media($screen-x-xl) {
+         flex-direction: column;
+      }
+   }
+}
+
+.contact {
+   flex: 0 0 44%;
+   position: relative;
+
+   @include media($screen-x-xl) {
+      order: 2;
+   }
+
+   &::before {
+      @include bg-img;
+      background: url('../img/footer/bg-img.jpg') no-repeat 0% / cover;
+   }
+   &::after {
+      @include filter;
+   }
+
+   .decorated-word {
+      bottom: -130px;
+      right: 172px;
+
+      opacity: 0.03;
+      color: #f7f7f7;
+
+      z-index: 0;
+   }
+   &__wrapper {
+      display: flex;
+      justify-content: flex-end;
+
+      @include media($screen-x-xl) {
+         justify-content: flex-start;
+      }
+   }
+   &__container {
+      min-height: 100vh;
+
+      padding: 13vh 11% 4vh 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include media($screen-x-xl) {
+         padding: 13vh 0 4vh 28%;
+      }
+      @include media($screen-md) {
+         padding-left: 50px;
+         padding-right: 50px;
+      }
+      @include media($screen-sm) {
+         padding-left: 20px;
+         padding-right: 20px;
+      }
+   }
+   &__title {
+      margin-bottom: 21.8vh;
+      display: flex;
+
+      &::after {
+         width: 106%;
+
+         @include media($screen-sm) {
+            width: 50%;
+         }
+      }
+   }
+   &__items {
+      flex-grow: 1;
+
+      margin-left: 43px;
+   }
+}
+
+.item__connection {
+   display: flex;
+   flex-direction: row;
+
+   margin-bottom: 40px;
+   &:last-child {
+      pointer-events: none;
+   }
+}
+.icon__box {
+   width: 25px;
+   margin-right: 30px;
+
+   color: #b3b3b3;
+
+   transition: 0.3s ease;
+
+   &:hover {
+      color: $brand-color;
+   }
+}
+.connection {
+   &__icon {
+      font-size: 25px;
+   }
+   &__name {
+      margin-bottom: 10.5px;
+
+      color: #b3b3b3;
+      font-size: $fs-x-sm;
+      text-transform: uppercase;
+      letter-spacing: 0.75px;
+   }
+   &__link {
+      position: relative;
+
+      font-family: $font-paragraph;
+      color: #999999;
+      letter-spacing: 0.28px;
+
+      div:not(:last-child) {
+         margin-bottom: 9px;
+      }
+
+      &::after {
+         @include pseudo;
+
+         width: 0;
+         height: 2px;
+
+         transition: 0.3s ease;
+
+         background-color: $brand-color;
+      }
+      &:hover::after {
+         width: 100%;
+      }
+   }
+}
+.copyright {
+   font-family: $font-paragraph;
+   color: #999999;
+   line-height: 24px;
+   letter-spacing: 0.14px;
+}
+
+.location {
+   position: relative;
+   flex-grow: 1;
+}
+.container__form {
+   min-height: 100vh;
+
+   padding-left: 6.5%;
+   padding-bottom: 8.5vh;
+
+   display: flex;
+   align-items: flex-end;
+
+   @include media($screen-x-xl) {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 4vh;
+   }
+   @include media($screen-md) {
+      padding-left: 50px;
+      padding-right: 50px;
+   }
+   @include media($screen-sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+}
+.form {
+   width: 63%;
+
+   padding: 5% 7%;
+
+   z-index: 1;
+
+   background-color: $primary-color-light;
+
+   @include media($screen-x-xl) {
+      width: 400px;
+      padding: 2.8571rem 2.8571rem 2.1429rem;
+   }
+   @include media($screen-md) {
+      padding: 2.8rem 2rem;
+   }
+
+   &__input {
+      margin-bottom: 30px;
+
+      @include media($screen-md) {
+         margin-bottom: 15px;
+      }
+
+      &--flex {
+         display: flex;
+
+         @include media($screen-md) {
+            flex-direction: column;
+         }
+
+         .input__field:first-child {
+            margin-right: 30px;
+
+            @include media($screen-md) {
+               margin-right: 0;
+               margin-bottom: 15px;
+            }
+         }
+      }
+
+      ::placeholder {
+         color: #999999;
+      }
+
+      textarea {
+         height: 180px;
+
+         @include media($screen-md) {
+            height: 100px;
+         }
+      }
+   }
+}
+.input__field {
+   width: 100%;
+   padding: 1.0714rem 1.4286rem;
+
+   border: 2px solid #ededed;
+   resize: none;
+
+   font-family: $font-paragraph;
+   color: $primary-color-dark;
+   letter-spacing: 0.14px;
+
+   &:focus {
+      border-color: rgba(255, 68, 0, 0.3);
+   }
+}
+.button {
+   position: relative;
+
+   padding: 1.4286rem 2.1429rem;
+
+   transition: 0.3s all;
+   background-color: $brand-color;
+   border: none;
+
+   font-family: $font-paragraph;
+   color: $primary-color-light;
+   text-transform: uppercase;
+   letter-spacing: 0.7px;
+
+   @include media($screen-x-xl) {
+      padding: 1rem 1.5rem;
+   }
+
+   &::before {
+      @include pseudo;
+      z-index: -1;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      transition: transform 0.3s, opacity 0.3s;
+      transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+      transform: scale3d(0.6, 0.6, 1);
+
+      opacity: 0;
+      border: 2px solid $brand-color;
+   }
+   &:hover::before {
+      transform: scale3d(1, 1, 1);
+
+      opacity: 1;
+   }
+   &:hover {
+      color: $brand-color;
+      background-color: transparent;
+   }
+}
+
+.wrapper__map {
+   position: absolute;
+
+   width: 100%;
+   height: 100%;
+}
+#map {
+   width: 100%;
+   height: 100%;
+}

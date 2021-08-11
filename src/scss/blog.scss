@@ -1,0 +1,157 @@
+.blog {
+   .decorated-letter {
+      top: 61vh;
+      right: -6%;
+
+      opacity: 0.2;
+      color: #e6e6e6;
+   }
+   .decorated-word {
+      top: 140px;
+      right: -8%;
+
+      opacity: 0.2;
+      color: #e6e6e6;
+      font-size: $fs-xl;
+      letter-spacing: 62.5px;
+   }
+
+   &__content {
+      margin: 22vh 0 100px;
+   }
+   &__title {
+      margin-bottom: 12.5vh;
+
+      color: $primary-color-dark;
+   }
+   &__container {
+      display: flex;
+
+      @include media($screen-xl) {
+         flex-direction: column;
+      }
+   }
+   &-subtitle {
+      font-family: $font-paragraph;
+      color: #999999;
+      letter-spacing: 1px;
+   }
+}
+
+.content {
+   &__block {
+      display: flex;
+      align-items: flex-end;
+
+      margin-right: 28px;
+
+      @include media($screen-xl) {
+         margin-right: 0;
+      }
+      @include media($screen-sm) {
+         flex-direction: column;
+         align-items: flex-start;
+      }
+   }
+   &__row {
+      padding-top: 102px;
+
+      @include media($screen-xl) {
+         padding-top: 50px;
+      }
+   }
+}
+
+.block {
+   &__img {
+      margin-right: 70px;
+      filter: grayscale(75%);
+
+      @include media($screen-sm) {
+         margin: 0 0 30px 0;
+      }
+
+      img {
+         width: 100%;
+      }
+   }
+   &__text {
+      display: flex;
+      flex-direction: column;
+
+      padding-bottom: 14.7%;
+
+      @include media($screen-sm) {
+         margin-right: 0;
+         padding-bottom: 0;
+      }
+   }
+   &__title {
+      position: relative;
+
+      max-width: 300px;
+
+      margin-bottom: 10px;
+
+      color: $primary-color-dark;
+      font-size: $fs-x-md;
+      text-transform: uppercase;
+      line-height: 37.8px;
+      letter-spacing: 2.6px;
+
+      &::before {
+         @include pseudo;
+         top: 25%;
+         left: -130px;
+         transform: translateY(-50%);
+
+         width: 100px;
+         height: 4px;
+
+         background-color: $brand-color;
+      }
+   }
+}
+
+.box {
+   &__title {
+      margin-bottom: 10px;
+
+      color: $primary-color-dark;
+      font-size: $fs-md;
+      text-transform: uppercase;
+      letter-spacing: 2.2px;
+   }
+   &__subtitle {
+      font-family: $font-paragraph;
+      color: #999999;
+      letter-spacing: 0.7px;
+   }
+}
+.row__box:not(:last-child) {
+   position: relative;
+
+   margin-bottom: 95px;
+
+   @include media($screen-xl) {
+      margin-bottom: 50px;
+   }
+
+   &::before {
+      @include pseudo;
+      top: 96px;
+
+      width: 110%;
+      height: 3px;
+
+      background-color: #ededed;
+
+      @include media($screen-xl) {
+         width: 370px;
+         top: 65px;
+      }
+      @include media($screen-sm) {
+         width: 70%;
+      }
+   }
+}

@@ -1,0 +1,279 @@
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////
+@import 'normalize.scss';
+@import 'null.scss';
+@import 'mixin.scss';
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////
+
+:root {
+   font-size: $fs-xx-sm;
+
+   @include media($screen-xl) {
+      font-size: $fs-xs;
+   }
+}
+
+body {
+   width: 100%;
+   height: 100%;
+   overflow-x: hidden;
+
+   font-family: $font-title;
+}
+
+.section {
+   position: relative;
+
+   width: 100%;
+   min-height: 100vh;
+
+   overflow: hidden;
+}
+
+.wrapper {
+   position: relative;
+
+   max-width: 1610px;
+   width: 100%;
+
+   margin: 0 auto;
+   padding: 0 50px 0 220px;
+
+   &__header {
+      padding-right: 200px;
+   }
+
+   @include media($screen-md) {
+      padding: 0 50px;
+   }
+   @include media($screen-sm) {
+      padding: 0 20px;
+   }
+}
+
+@mixin bg-img() {
+   content: '';
+   display: block;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: -2;
+   filter: grayscale(90%);
+}
+
+@mixin filter() {
+   content: '';
+   display: block;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: -1;
+   background: $primary-color-dark;
+   opacity: 0.9;
+}
+
+.b-title {
+   font-size: $fs-lg;
+   letter-spacing: 37px;
+   text-transform: uppercase;
+
+   @include media($screen-md) {
+      font-size: $fs-xx-md;
+      letter-spacing: 20px;
+   }
+}
+
+.m-title {
+   position: relative;
+
+   color: #f7f7f7;
+   font-size: $fs-xx-md;
+   text-transform: uppercase;
+   letter-spacing: 16.8px;
+
+   &::after {
+      @include pseudo;
+      top: 80px;
+
+      width: 30.5%;
+      height: 3px;
+
+      background-color: $brand-color;
+   }
+
+   @include media($screen-sm) {
+      letter-spacing: 8px;
+   }
+}
+
+.decorated-letter {
+   position: absolute;
+
+   text-transform: uppercase;
+   font-size: $fs-xx-xl;
+   z-index: -1;
+}
+
+.decorated-word {
+   position: absolute;
+
+   text-transform: uppercase;
+   letter-spacing: 125px;
+   font-size: $fs-xl;
+   z-index: -1;
+}
+
+.menu__nav {
+   position: absolute;
+
+   counter-reset: li;
+
+   left: 76px;
+   top: 53.8%;
+   transform: translateY(-50%);
+
+   z-index: 100;
+
+   @include media($screen-md) {
+      display: none;
+   }
+}
+.menu {
+   color: $primary-color-light;
+   text-transform: uppercase;
+
+   &__item {
+      &:not(:last-child) {
+         margin-bottom: 30px;
+      }
+   }
+   &__link {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      transition: 0.3s ease;
+
+      .circle {
+         position: relative;
+         display: block;
+
+         width: 15px;
+         height: 15px;
+
+         transition: 0.3s ease;
+         border-radius: 50%;
+         background-color: #737373;
+
+         &::before {
+            @include pseudo;
+
+            left: 50%;
+            bottom: 42px;
+            transform: translateX(-50%);
+
+            font-family: $font-title;
+            letter-spacing: 6px;
+            font-size: 0px;
+
+            content: '0' counter(li);
+            counter-increment: li;
+         }
+      }
+      .stick {
+         display: block;
+
+         width: 3px;
+         height: 0px;
+
+         transition: 0.3s ease;
+         background-color: $primary-color-light;
+      }
+      .text {
+         position: absolute;
+         left: 44px;
+
+         transform: translateX(-70px) scale(0);
+         opacity: 0;
+
+         letter-spacing: 1.4px;
+         white-space: nowrap;
+
+         pointer-events: none;
+         transition: 0.3s ease, opacity 0.4s;
+      }
+      &:hover {
+         .circle {
+            background-color: $primary-color-light;
+         }
+         .text {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+         }
+      }
+      &--active {
+         .menu__item:not(:first-child) & {
+            margin-top: 108px;
+         }
+
+         .circle {
+            background-color: $primary-color-light;
+            margin-bottom: 30px;
+
+            &::after {
+               height: 100px;
+            }
+            &::before {
+               font-size: $fs-xxx-md;
+            }
+         }
+         .stick {
+            height: 100px;
+         }
+         .text {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+         }
+      }
+   }
+}
+.about,
+.blog {
+   .menu {
+      &__link {
+         .circle {
+            background-color: #e6e6e6;
+
+            &::before {
+               color: $primary-color-dark;
+            }
+         }
+         .text {
+            color: $primary-color-dark;
+         }
+         &:hover,
+         &--active {
+            .circle {
+               background-color: $primary-color-dark;
+            }
+            .stick {
+               background-color: $primary-color-dark;
+            }
+         }
+      }
+   }
+}
+
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////
+@import 'header.scss';
+@import 'about.scss';
+@import 'services.scss';
+@import 'porfolio.scss';
+@import 'blog.scss';
+@import 'footer.scss';
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////

@@ -1,0 +1,261 @@
+.portfolio {
+   &::after {
+      @include bg-img;
+      background: url('../img/portfolio/bg-img.jpg') no-repeat center / cover;
+   }
+   &::before {
+      @include filter;
+   }
+
+   .decorated-letter {
+      top: -20px;
+      right: 50px;
+
+      opacity: 0.03;
+      color: #f7f7f7;
+      font-size: $fs-x-xl;
+   }
+   .decorated-word {
+      bottom: 70px;
+      left: -330px;
+
+      opacity: 0.1;
+      color: $brand-color;
+      font-size: $fs-xx-lg;
+      letter-spacing: 62.5px;
+   }
+
+   &__content {
+      margin: 17.1vh 0 100px;
+   }
+   &__title {
+      margin-bottom: 12.5vh;
+   }
+   &__container {
+      display: flex;
+
+      @include media($screen-lg) {
+         flex-direction: column;
+      }
+   }
+}
+
+.project {
+   display: flex;
+   margin-right: 100px;
+
+   @include media($screen-lg) {
+      margin-right: 0;
+   }
+   @include media($screen-sm) {
+      flex-direction: column;
+   }
+
+   &__items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--1 {
+         @include media($screen-sm) {
+            margin-bottom: 36px;
+         }
+      }
+      &--1,
+      &--3 {
+         padding-top: 115px;
+
+         @include media($screen-sm) {
+            padding-top: 50px;
+         }
+      }
+      &--2 {
+         img {
+            margin-bottom: 36px;
+         }
+      }
+      &:not(:last-child) {
+         margin-right: 30px;
+
+         @include media($screen-sm) {
+            margin-right: 0;
+         }
+      }
+      img {
+         filter: grayscale(75%);
+         width: 100%;
+         object-fit: contain;
+
+         @include media($screen-sm) {
+            height: 270px;
+         }
+      }
+   }
+   &__block {
+      max-width: 255px;
+
+      text-align: center;
+
+      font-family: $font-subtitle;
+   }
+   &__title {
+      margin-bottom: 10px;
+
+      color: #f7f7f7;
+      font-size: $fs-sm;
+
+      letter-spacing: 1.6px;
+   }
+   &__text {
+      margin-bottom: 45px;
+
+      font-family: $font-paragraph;
+      color: #b3b3b3;
+
+      line-height: 25.2px;
+      letter-spacing: 0.28px;
+
+      @include media($screen-lg) {
+         margin-bottom: 25px;
+      }
+   }
+}
+.btn-link {
+   position: relative;
+   width: 70px;
+   height: 70px;
+
+   border: none;
+   border-radius: 50%;
+   background-color: #f7f7f7;
+
+   transition: transform ease-out 0.1s, background-color 0.2s;
+
+   @include media($screen-lg) {
+      width: 55px;
+      height: 55px;
+   }
+
+   &::after {
+      @include pseudo;
+
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px rgb(255 255 255 / 10%);
+      opacity: 0;
+
+      transform: scale(0.9);
+      z-index: -1;
+   }
+   &:hover {
+      transform: scale(0.93);
+
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+   }
+   &:hover::after {
+      animation: sonarEffect 1.3s ease-out 75ms;
+   }
+   .fa-link {
+      color: $brand-color;
+      font-size: 26px;
+
+      @include media($screen-lg) {
+         font-size: 20px;
+      }
+   }
+}
+
+@keyframes sonarEffect {
+   0% {
+      opacity: 0.2;
+   }
+   40% {
+      opacity: 0.4;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px $brand-color, 0 0 0 10px rgba(255, 255, 255, 0.5);
+   }
+   100% {
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px $brand-color, 0 0 0 10px rgba(255, 255, 255, 0.5);
+      transform: scale(1.3);
+      opacity: 0;
+   }
+}
+
+.sidebar {
+   padding-top: 109px;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   @include media($screen-lg) {
+      padding-top: 50px;
+      flex-direction: row;
+   }
+
+   &__list {
+      color: #999;
+      font-size: $fs-sm;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+
+      @include media($screen-sm) {
+         margin-right: 20px;
+      }
+      .row {
+         line-height: 20px;
+
+         &:not(:last-child) {
+            margin-bottom: 40.5px;
+
+            @include media($screen-lg) {
+               margin-bottom: 25px;
+            }
+         }
+      }
+
+      a {
+         transition: 0.3s ease;
+
+         &:hover {
+            color: $primary-color-light;
+         }
+      }
+   }
+}
+
+.pagination {
+   display: flex;
+
+   .itm {
+      width: 15px;
+      height: 15px;
+
+      cursor: pointer;
+
+      border-radius: 50%;
+      background-color: #999;
+      transition: 0.3s ease;
+
+      &:not(:last-child) {
+         margin-right: 30px;
+
+         @include media($screen-sm) {
+            margin-right: 20px;
+         }
+      }
+
+      &:hover {
+         background-color: #f7f7f7;
+      }
+
+      @include media($screen-lg) {
+         width: 12px;
+         height: 12px;
+      }
+   }
+}

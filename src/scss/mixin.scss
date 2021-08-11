@@ -1,0 +1,118 @@
+/////////////////////////////////////////////MIXIN/////////////////////////////////////////////
+
+@mixin adaptive-value($property, $startSize, $minSize, $maxWidth) {
+   $minWidth: 320;
+   $addSize: $startSize - $minSize;
+   $valueWidth: $maxWidth - $minWidth;
+   #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$valueWidth}));
+}
+
+@mixin centering($height, $width) {
+   #{top}: calc(50% - #{$height + px});
+   #{left}: calc(50% - #{$width + px});
+}
+
+@mixin сentering-xy() {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+@mixin pseudo($content: '') {
+   content: $content;
+   display: block;
+   position: absolute;
+}
+
+/////////////////////////////////////////////MIXIN/////////////////////////////////////////////
+
+/////////////////////////////////////////////COLOR/////////////////////////////////////////////
+
+$primary-color-light: #fff;
+$primary-color-dark: #333;
+$brand-color: #ff4200;
+
+// $secondary-color: ;
+// $text-color: ;
+// $link-color: ;
+// $main-color: ;
+// $default-color: ;
+// $accent-color: ;
+// $inverse-color: ;
+// $danger-color: ;
+// $success-color: ;
+// $warning-color: ;
+
+/////////////////////////////////////////////COLOR/////////////////////////////////////////////
+
+/////////////////////////////////////////////FONTS/////////////////////////////////////////////
+
+$font-title: 'Avenir-Bold';
+$font-subtitle: 'Avenir-Demi';
+$font-paragraph: 'Lato-Regular';
+
+$fs-xs: 11px;
+$fs-xx-sm: 14px;
+
+$fs-x-sm: 1.0714rem; // 15px;
+$fs-sm: 1.1429rem; // 16px;
+$fs-md: 1.5rem; // 21px;
+$fs-x-md: 1.9286rem; // 27px;
+$fs-xx-md: 3rem; // 42px;
+$fs-xxx-md: 4.2857rem; // 60px;
+$fs-lg: 5.1429rem; // 72px;
+$fs-x-lg: 7.1429rem; // 100px;
+$fs-xx-lg: 8.9286rem; // 125px;
+$fs-xl: 17.8571rem; // 250px;
+$fs-x-xl: 53.5714rem; // 750px;
+$fs-xx-xl: 71.4286rem; // 1000px;
+
+@font-face {
+   font-family: 'Avenir-Bold';
+   src: url('../fonts/avenirnextcyr-bold.eot');
+   src: url('../fonts/avenirnextcyr-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/avenirnextcyr-bold.woff2') format('woff2'), url('../fonts/avenirnextcyr-bold.woff') format('woff'), url('../fonts/avenirnextcyr-bold.ttf') format('truetype'), url('../fonts/avenirnextcyr-bold.svg#avenirnextcyr-bold') format('svg');
+}
+
+@font-face {
+   font-family: 'Avenir-Demi';
+   src: url('../fonts/avenirnextcyr-demi.eot');
+   src: url('../fonts/avenirnextcyr-demi.eot?#iefix') format('embedded-opentype'), url('../fonts/avenirnextcyr-demi.woff2') format('woff2'), url('../fonts/avenirnextcyr-demi.woff') format('woff'), url('../fonts/avenirnextcyr-demi.ttf') format('truetype'), url('../fonts/avenirnextcyr-demi.svg#avenirnextcyr-demi') format('svg');
+}
+
+@font-face {
+   font-family: 'Lato-Regular';
+   src: url('../fonts/lato_regular.eot');
+   src: url('../fonts/lato_regular.eot?#iefix') format('embedded-opentype'), url('../fonts/lato_regular.woff2') format('woff2'), url('../fonts/lato_regular.woff') format('woff'), url('../fonts/lato_regular.ttf') format('truetype'), url('../fonts/lato_regular.svg#lato_regular') format('svg');
+}
+
+/////////////////////////////////////////////FONTS/////////////////////////////////////////////
+
+/////////////////////////////////////////////MEDIA/////////////////////////////////////////////
+
+@mixin media($media) {
+   @media only screen and (max-width: $media) {
+      @content;
+   }
+}
+
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+$screen-x-xl: 1366px;
+
+// 1920px
+// 1680px
+// 1366px
+// 1280px
+// 1024px
+// 800px
+// 768px
+// 600px
+// 533px
+// 360px
+// 320px
+
+/////////////////////////////////////////////MEDIA/////////////////////////////////////////////
