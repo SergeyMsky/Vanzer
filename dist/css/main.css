@@ -570,6 +570,9 @@ body {
   font-family: "Avenir-Bold";
   letter-spacing: 6px;
   font-size: 0px;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
   content: "0" counter(li);
   counter-increment: li;
 }
@@ -577,9 +580,9 @@ body {
   display: block;
   width: 3px;
   height: 0px;
-  -webkit-transition: 0.3s ease;
-  -o-transition: 0.3s ease;
-  transition: 0.3s ease;
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
   background-color: #fff;
 }
 .menu__link .text {
