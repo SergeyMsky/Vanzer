@@ -1,2 +1,1 @@
-https://sergeymsky.github.io/Vanzer/
-
+Landing page - Vanzer
